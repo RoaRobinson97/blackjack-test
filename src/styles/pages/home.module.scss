@@ -1,0 +1,74 @@
+.table {
+    width: 100%;
+    height: 70vh;
+    background: linear-gradient(to right, #52c234, #1c5507);
+}
+
+.controls{
+    width: 100%;
+    height: 20vh;
+    background: linear-gradient(to right, #efefbb, #d4d3dd);
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between;
+    align-items: center;
+}
+
+.controls__column{
+    display: flex;
+    flex-direction: column;
+}
+
+.controls__button{
+    width: 7vw;
+    height: 7vh;
+    font-family: sans-serif;
+    font-size: medium;
+    font-weight: 600;
+    border-radius: 20px;
+    margin-block: 10px;
+    margin-inline: 10px;
+    color: white;
+}
+.controls__button:hover{
+    font-size: large;
+}
+
+.controls__button__black{
+   @extend .controls__button;
+   background: linear-gradient(to right, #232526, #414345);
+}
+
+.controls__button__black:hover{
+    background: linear-gradient(to right, #848585, #8d8e8f);
+}
+
+.controls__button__red{
+    @extend .controls__button;
+    background: linear-gradient(to right, #e52d27, #b31217); 
+}
+.controls__button__red:hover{
+    @extend .controls__button;
+    background: linear-gradient(to right, #9a1712, #770609); 
+}
+
+.controls__button__green{
+    @extend .controls__button;
+    background: linear-gradient(to right, #11998e, #38ef7d);
+ }
+
+.controls__button__green:hover{
+    background: linear-gradient(to right, #3fc6bb, #81eeab);
+}
+
+.controls__title{
+    text-align: center;
+    font-family: serif;
+    margin: 0;
+}
+
+.controls__subtitle{
+    text-align: center;
+    font-family: cursive;
+    margin: 0;
+}
