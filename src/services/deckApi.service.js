@@ -7,6 +7,10 @@ const DeckService = {
   async newDeck() {
     return axios.get(`${API_URL}/new`, { headers });
   },
+
+  async drawCard(id) {
+    return axios.get(`${API_URL}/${id}/draw`, { headers });
+  },
 };
 
 export default DeckService;
