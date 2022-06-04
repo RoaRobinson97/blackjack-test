@@ -1,6 +1,6 @@
 /* eslint-disable no-plusplus */
 export default function calculatePoints(cards) {
-  const points = 0;
+  const points = 1;
   const sortedCards = cards;
   const aces = [];
 
