@@ -5,6 +5,7 @@ import React, { useEffect, useState } from 'react';
 import Controls from '../components/Home/controls.fixture';
 import Table from '../components/Home/table.fixture';
 import DeckService from '../services/deckApi.service';
+import calculatePoints from '../utils/calculatePoints';
 
 function Home() {
   const [error, setError] = useState(null);
@@ -13,7 +14,7 @@ function Home() {
     machineCards: [],
     userCards: [],
     userPoints: 0,
-    housePoints: 0,
+    machinePoints: 0,
     winner: null,
   });
 
@@ -37,8 +38,8 @@ function Home() {
     drawCard(state.deckId).then((res) => {
       const { userCards } = state;
       userCards.push(res.data.cards[0]);
+
       setState({ ...state, userCards });
-      console.log(state);
     });
   }
 
@@ -68,7 +69,10 @@ function Home() {
 
         drawCard(deckId).then((res) => {
           machineCards.push(res.data.cards[0]);
-          setState({ ...state, machineCards, deckId });
+          const points = calculatePoints(machineCards);
+          setState({
+            ...state, machineCards, deckId, machinePoints: points,
+          });
         });
       });
     });
