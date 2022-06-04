@@ -18,9 +18,9 @@ export default function calculatePoints(cards) {
 
   /** Check value for each case */
   newCards.forEach((card) => {
-    if (card.value == ('KING' || 'QUEEN' || 'JACK')) {
+    if ((card.value === 'JACK') || (card.value === 'QUEEN') || (card.value === 'KING')) {
       points += 10;
-    }
+    } else
     if (card.value == 'ACE') {
       if (points < 21) {
         points += 10;

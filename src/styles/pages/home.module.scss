@@ -76,3 +76,21 @@
     font-family: cursive;
     margin: 0;
 }
+
+.controls__status__win{
+    text-align: center;
+    font-family: cursive;
+    font-size: 30px;
+    font-weight: 600;
+    color: green;
+    margin: 0;
+}
+
+.controls__status__lose{
+    text-align: center;
+    font-family: cursive;
+    font-size: 30px;
+    font-weight: 600;
+    color: red;
+    margin: 0;
+}
