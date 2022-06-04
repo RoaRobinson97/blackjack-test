@@ -1,0 +1,9 @@
+{
+    "staticPath": "public",
+    "watchDirs": ["src"],
+    "webpack": {
+      "configPath": "./webpack.config.js"
+    },
+    "globalImports": ["src/styles/global.scss"],
+    "port": 5001
+  }
