@@ -107,6 +107,7 @@ function Home() {
         status={state.status}
       />
       <Table state={state} />
+
     </div>
   );
 }
