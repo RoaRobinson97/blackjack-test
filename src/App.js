@@ -1,15 +1,15 @@
 import React from 'react';
-import {
-  BrowserRouter, Route, Link, Routes,
-} from 'react-router-dom';
-import Page1 from './pages/Page1';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Home from './pages/Home';
+import NotFound from './pages/NotFound';
 
+/** BrowserRouter from React DOM V6 to handle routing */
 function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route exact path="/" element={<h1>Home Page</h1>} />
-        <Route exact path="page1" element={<Page1 />} />
+        <Route exact path="/" element={<Home />} />
+        <Route exact path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
   );
