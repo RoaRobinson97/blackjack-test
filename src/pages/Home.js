@@ -38,8 +38,8 @@ function Home() {
     drawCard(state.deckId).then((res) => {
       const { userCards } = state;
       userCards.push(res.data.cards[0]);
-
-      setState({ ...state, userCards });
+      const points = calculatePoints(userCards);
+      setState({ ...state, userCards, userPoints: points });
     });
   }
 
