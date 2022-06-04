@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable react/jsx-no-bind */
 /* eslint-disable no-shadow */
 import React, { useEffect, useState } from 'react';
 import Controls from '../components/Home/controls.fixture';
@@ -8,7 +10,7 @@ function Home() {
   const [error, setError] = useState(null);
   const [state, setState] = useState({
     deckId: null,
-    machineCard: [],
+    machineCards: [],
     userCards: [],
     userPoints: 0,
     housePoints: 0,
@@ -31,6 +33,15 @@ function Home() {
     return response;
   }
 
+  function userDrawCard() {
+    drawCard(state.deckId).then((res) => {
+      const { userCards } = state;
+      userCards.push(res.data.cards[0]);
+      setState({ ...state, userCards });
+      console.log(state);
+    });
+  }
+
   /** Start playing --NOT IMPLEMENTED YET--*/
   function startGame() {
     return false;
@@ -44,12 +55,10 @@ function Home() {
   useEffect(() => {
     let deckId = null;
     const machineCards = [];
-    const machinePoints = 0;
     /** Get new deck for the game */
 
     getNewDeck().then((res) => {
       deckId = res.data.deck_id;
-
       /** Draw one card for the machine */
 
       drawCard(deckId).then((res) => {
@@ -59,16 +68,16 @@ function Home() {
 
         drawCard(deckId).then((res) => {
           machineCards.push(res.data.cards[0]);
-          console.log(res.data);
+          setState({ ...state, machineCards, deckId });
         });
       });
     });
-  }, []);
+  }, [state.userCards]);
 
   return (
     <div>
       <h1>{state.deckId}</h1>
-      <Controls play={startGame()} restart={restartGame()} state={state} />
+      <Controls play={startGame()} restart={restartGame()} hit={userDrawCard} />
       <Table state={state} />
     </div>
   );

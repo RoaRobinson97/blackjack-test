@@ -3,7 +3,7 @@ import React from 'react';
 import styles from '../../styles/pages/home.module.scss';
 
 /** Display controls of the game */
-function Controls() {
+function Controls({ hit }) {
   return (
     <div className={styles.controls}>
       <div className={styles.controls__column}>
@@ -16,7 +16,7 @@ function Controls() {
       </div>
       <div className={styles.controls__column}>
         <button type="button" className={styles.controls__button__red}> Stand </button>
-        <button type="button" className={styles.controls__button__green}> Hit </button>
+        <button type="button" className={styles.controls__button__green} onClick={hit}> Hit </button>
       </div>
     </div>
   );
