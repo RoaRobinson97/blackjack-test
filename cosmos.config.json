@@ -4,6 +4,6 @@
     "webpack": {
       "configPath": "./webpack.config.js"
     },
-    "globalImports": ["src/styles/global.scss"],
+    "globalImports": ["src/styles/global.module.scss"],
     "port": 5001
   }
